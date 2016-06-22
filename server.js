@@ -11,9 +11,10 @@ const pokemonList = require('./public/js/pokemon_list');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// INSERT STATIC MIDDLEWARE FUNCTION HERE
+
 app.get('/pokemon', (_req, res) => {
   res.render('pages/index', {
-    title: 'Starter Pokemon Evolutions',
     data: pokemonList
   });
 });
@@ -30,6 +31,8 @@ app.get('/pokemon/:id', (req, res, next) => {
     if (id === pokemon.id) {
       pokemonToRender = pokemon;
       break;
+    } else {
+      next();
     }
   }
 
