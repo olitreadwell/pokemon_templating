@@ -26,7 +26,7 @@ app.get('/pokemon/:id', (req, res, next) => {
     next();
   }
 
-  let pokemonToRender = {};
+  let pokemonToRender = 0;
   for (const pokemon of pokemonList) {
     if (id === pokemon.id) {
       pokemonToRender = pokemon;
