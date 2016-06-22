@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title><%= title %></title>
+  </head>
+
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <td>Sprite</td>
+          <td>Name</td>
+          <td>Pokedex Number</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% data.forEach((pokemon) => { %>
+          <tr>
+            <td>
+              <a href="/pokemon/<%= pokemon.id %>">
+                <img src="<%= pokemon.image_url %>" alt="<%= pokemon.name %>" />
+              </a>
+            </td>
+            <td><%= pokemon.name %></td>
+            <td><%= pokemon.id %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </body>
+</html>
