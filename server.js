@@ -6,7 +6,7 @@ const port = process.env.PORT || 8000;
 
 const path = require('path');
 
-const pokemonList = require('./public/js/pokemon_list');
+const pokemonList = require('./utils/pokemon_list');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
