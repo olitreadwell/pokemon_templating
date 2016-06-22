@@ -26,14 +26,16 @@ app.get('/pokemon/:id', (req, res, next) => {
     next();
   }
 
-  let pokemonToRender = 0;
+  let pokemonToRender = {};
   for (const pokemon of pokemonList) {
     if (id === pokemon.id) {
       pokemonToRender = pokemon;
       break;
-    } else {
-      next();
     }
+  }
+
+  if (!pokemonToRender) {
+    next();
   }
 
   res.render('pages/profile', {
