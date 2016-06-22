@@ -22,7 +22,7 @@ Using a provided data set, implement an Express server that renders content usin
 Successfully load the files needed to use Materialize to style template content.
 
 1. Read this short article: [Serving static files in Express](http://expressjs.com/en/starter/static-files.html).
-1. Use the `path` module to normalize the path `public` directory.
+1. Use the `path` module to normalize the path to the `public` directory.
 1. In the `server.js` file, write a middleware function to serve static files.
 1. Duplicate your existing template files to make two new files titled `index2.ejs` and `profile2.ejs`.
 1. Write the `<meta>`, `<link>`, and `<script>` tags needed to load the static files for Materialize.
