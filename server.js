@@ -11,7 +11,7 @@ const pokemonList = require('./utils/pokemon_list');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// INSERT STATIC MIDDLEWARE FUNCTION HERE
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/pokemon', (_req, res) => {
   res.render('pages/index', {
