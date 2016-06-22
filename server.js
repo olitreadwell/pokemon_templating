@@ -35,6 +35,10 @@ app.get('/pokemon/:id', (req, res, next) => {
     }
   }
 
+  if (!pokemonToRender) {
+    next();
+  }
+
   res.render('pages/profile', {
     data: pokemonToRender
   });
