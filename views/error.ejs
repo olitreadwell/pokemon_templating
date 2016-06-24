@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>ERROR</title>
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/css/materialize.min.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header>
+      <div class="row">
+        <div class="col s12 blue darken-2 title-container">
+          <h2 class="center-align title-item blue-grey-text text-lighten-5"><%= error.status %></h2>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="row">
+        <div class="col s8 offset-s2 align-center">
+          <h5 class="center-align error-message"><%= message %></h5>
+          <div class="flex-container">
+            <img class="flex-item" src="/images/weezing.gif" />
+            <a class="flex-item" href="/pokemon"><-- Home</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="page-footer blue darken-2">
+      <div class="footer-copyright center-align blue darken-3">
+        <small>Copyright © 2016 Galvanize</small>
+      </div>
+    </footer>
+
+    <script src="/js/jquery-3.0.0.min.js"></script>
+    <script src="/js/materialize.min.js"></script>
+  </body>
+</html>

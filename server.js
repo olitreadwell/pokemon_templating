@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/pokemon', (_req, res) => {
-  res.render('pages/index', {
+  res.render('pages/index2', {
     title: 'Starter Pokemon Evolutions',
     data: pokemonList
   });
@@ -39,18 +39,24 @@ app.get('/pokemon/:id', (req, res, next) => {
     next();
   }
 
-  res.render('pages/profile', {
+  res.render('pages/profile2', {
+    title: pokemonToRender.name,
     data: pokemonToRender
   });
 });
 
-app.use((_req, res) => {
-  res.sendStatus(404);
+app.use(function(_req, res, next) {
+  var err = new Error('This is not the Pokemon you were looking for');
+  err.status = 404;
+  next(err);
 });
 
-app.use((err, _req, res, _next) => {
-  console.error(err.stack);
-  res.sendStatus(500);
+app.use(function(err, _req, res, _next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: err
+  });
 });
 
 app.listen(port, () => {

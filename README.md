@@ -36,3 +36,38 @@ Successfully load the files needed to use Materialize to style template content.
 - [path.join()](https://nodejs.org/api/path.html#path_path_join_path)
 - [Why use path.join?](http://stackoverflow.com/questions/9756567/do-you-need-to-use-path-join-in-node-js)
 - [Materialize setup](http://materializecss.com/getting-started.html)
+
+### Part 3
+
+For today’s warmup, your goal is to refactor your error handling middleware to render an error template.
+
+- Create a new template in the views directory called `error.ejs`
+- Change your `404` and `500` error handlers to render `error.ejs` with information from the error object. (err.message, err.status, err.stack, etc.)
+- Use Materialize to style the page however you’d like, think of GitHub’s 404 page for inspiration.
+
+Your refactored error handlers could look like this:
+```
+app.use(function(_req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+app.use(function(err, _req, res, _next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  });
+```
+
+### Part 4
+
+Use EJS partials to refactor your templates. Anywhere there is repeated code is usually a good case to use a partial.
+
+- Inside the `views` directory, make a new directory titled `partials`.
+- Read the following tutorial, specifically the section about using partials
+
+#### Resources
+[Use EJS to template your Node application](https://scotch.io/tutorials/use-ejs-to-template-your-node-application)

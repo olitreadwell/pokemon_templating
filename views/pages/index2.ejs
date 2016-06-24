@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <title><%= title %></title>
-
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="/css/materialize.min.css" rel="stylesheet" />
-    <link href="/css/styles.css" rel="stylesheet" />
+    <% include ../partials/head %>
   </head>
 
   <body>
     <header>
-      <div class="row">
-        <div class="col s12 blue darken-2 title-container">
-          <h2 class="center-align title-item blue-grey-text text-lighten-5"><%= title %></h2>
-        </div>
-      </div>
+      <% include ../partials/header %>
     </header>
 
     <main class="container">
@@ -50,11 +39,7 @@
       </div>
     </main>
 
-    <footer class="page-footer blue darken-2">
-      <div class="footer-copyright center-align blue darken-3">
-        <small>Copyright © 2016 Galvanize</small>
-      </div>
-    </footer>
+    <% include ../partials/footer %>
 
     <script src="/js/jquery-3.0.0.min.js"></script>
     <script src="/js/materialize.min.js"></script>
