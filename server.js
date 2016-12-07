@@ -1,4 +1,4 @@
-'use strict';
+
 
 const express = require('express');
 const app = express();
@@ -15,12 +15,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/pokemon', (_req, res) => {
   res.render('pages/index', {
-    data: pokemonList
+    data: pokemonList,
   });
 });
 
 app.get('/pokemon/:id', (req, res, next) => {
-  let id = Number.parseInt(req.params.id);
+  const id = Number.parseInt(req.params.id);
 
   if (Number.isNaN(id) || id < 0) {
     next();
@@ -39,7 +39,7 @@ app.get('/pokemon/:id', (req, res, next) => {
   }
 
   res.render('pages/profile', {
-    data: pokemonToRender
+    data: pokemonToRender,
   });
 });
 
